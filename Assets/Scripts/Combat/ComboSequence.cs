@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using AdventuresOfBlink.Data;
 
 namespace AdventuresOfBlink.Combat
 {
