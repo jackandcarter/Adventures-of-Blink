@@ -73,4 +73,12 @@ Save this file inside the `Assets` folder so Unity imports it as a `TextAsset` a
 2. Set the virtual camera to follow and look at the player.
 3. You can still attach `CameraController` for manual orbiting while Cinemachine handles framing.
 
+## Trigger Volumes
+1. Add a `TriggerVolume` component to a collider marked **Is Trigger**.
+2. Use **onPlayerEnter** and **onPlayerExit** to hook up reactions in the Inspector.
+3. `TeleportTrigger` moves the player to its **Target Location** when entered.
+4. `BoundaryTrigger` can push the player back or stop their movement.
+5. `SceneChangeTrigger` loads the specified scene using **Scene Name** on enter.
+6. `CutsceneTrigger` plays a Timeline via its **Playable Director** on enter.
+
 Save this file inside the `Assets` folder so Unity imports it as a `TextAsset` and it can be viewed from the editor.
