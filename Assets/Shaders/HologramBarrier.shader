@@ -45,9 +45,9 @@ Shader "AdventuresOfBlink/HologramBarrier"
 
             half4 frag(Varyings i) : SV_Target
             {
-                float line = step(0.5, frac(i.positionWS.x * _LineFrequency));
-                half alpha = lerp(_BaseColor.a, _LineColor.a, line);
-                half3 color = _BaseColor.rgb + line * _LineColor.rgb;
+                float lineMask = step(0.5, frac(i.positionWS.x * _LineFrequency));
+                half alpha = lerp(_BaseColor.a, _LineColor.a, lineMask);
+                half3 color = _BaseColor.rgb + lineMask * _LineColor.rgb;
                 return half4(color, alpha);
             }
             ENDHLSL
