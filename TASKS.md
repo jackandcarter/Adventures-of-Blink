@@ -14,7 +14,7 @@ Below is a high-level task list for implementing the features described in the p
 
 ## User Interface
 - [ ] Design the macOS-like dock with drag-and-drop shortcuts
-- [ ] Set up inventory and ability assignment to the dock
+- [x] Set up inventory and ability assignment to the dock
 
 ## World Systems
 - [ ] Integrate day/night cycle that toggles between Ben and Blink
