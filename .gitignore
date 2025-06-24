@@ -1,0 +1,36 @@
+# Unity generated files
+[Ll]ibrary/
+[Tt]emp/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+obj/
+*.csproj
+*.unityproj
+*.sln
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.bak
+*.pidb.meta
+sysinfo.txt
+*.apk
+*.aab
+*.xcworkspace/
+*.xcuserstate
+.DS_Store
+.DS_Store?
+[Oo]bj/
+[Uu]ser[Ss]ettings/
+MemoryCaptures/
+AssetBundles/
+
+# Local settings
+.vscode/
+
