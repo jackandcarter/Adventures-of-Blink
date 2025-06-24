@@ -45,3 +45,32 @@ This guide outlines how to configure core systems in **Adventures of Blink**. Fo
    - **duke** – the `DukeController` instance.
 
 Save this file inside the `Assets` folder so Unity imports it as a `TextAsset` and it can be viewed from the editor.
+
+## Rendering Pipeline and Post-Processing
+1. The project uses **Universal Render Pipeline (URP)**. Ensure the pipeline asset under `Assets/Settings/PC_RPAsset.asset` is assigned in **Graphics Settings**.
+2. Import the **Post Processing** package if it isn't already included.
+3. Create a global volume and assign `DefaultVolumeProfile.asset` for bloom, color grading and chromatic aberration. Enable bloom to accentuate neon lighting.
+
+## Neon Materials
+1. Two example shaders live in `Assets/Shaders`:
+   - `NeonGlow.shader` – simple unlit shader with emission.
+   - `HologramBarrier.shader` – transparent shader used for Blink's shield effect.
+2. Create materials that use these shaders and adjust the emission colors to taste.
+3. Assign the `NeonGlow` material to street lights or signs for a vibrant glow.
+
+## Blink Hologram Effect
+1. Add a `BlinkHologram` component to Blink's model.
+2. Set **Hologram Material** to a material that uses `HologramBarrier.shader`.
+3. Call `SetActive(true)` when Blink transforms to enable the barrier and `SetActive(false)` to return to the normal material.
+
+## Environment Prototyping
+1. Install the **ProBuilder** package from the package manager.
+2. Use ProBuilder shapes to block out buildings and streets. Save meshes to the `Assets/Models` folder for reuse.
+3. Example models `NeonSign.obj` and `WallPanel.obj` demonstrate simple planes for signage and walls.
+
+## Cinemachine Camera
+1. Add the **Cinemachine** package and create a `CinemachineVirtualCamera`.
+2. Set the virtual camera to follow and look at the player.
+3. You can still attach `CameraController` for manual orbiting while Cinemachine handles framing.
+
+Save this file inside the `Assets` folder so Unity imports it as a `TextAsset` and it can be viewed from the editor.
