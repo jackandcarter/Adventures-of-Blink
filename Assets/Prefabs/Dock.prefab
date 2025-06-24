@@ -1,0 +1,248 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 22400000}
+  - component: {fileID: 22300000}
+  - component: {fileID: 11400000}
+  m_Layer: 5
+  m_Name: Dock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &22400000
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1001}
+  - {fileID: 1002}
+  - {fileID: 1003}
+  - {fileID: 1004}
+  - {fileID: 1005}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!223 &22300000
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000000, type: 3}
+  inventory: {fileID: 0}
+  slots:
+  - {fileID: 1141001}
+  - {fileID: 1141002}
+  - {fileID: 1141003}
+  - {fileID: 1141004}
+  - {fileID: 1141005}
+--- !u!1 &1001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2241001}
+  - component: {fileID: 2221001}
+  - component: {fileID: 1141001}
+  m_Layer: 5
+  m_Name: Slot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2241001
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Father: {fileID: 1}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!222 &2221001
+Image:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001}
+  m_Sprite: {fileID: 0}
+  m_PreserveAspect: 1
+--- !u!114 &1141001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000000, type: 3}
+  icon: {fileID: 2221001}
+  slotIndex: 0
+--- !u!1 &1002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2241002}
+  - component: {fileID: 2221002}
+  - component: {fileID: 1141002}
+  m_Layer: 5
+  m_Name: Slot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2241002
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Father: {fileID: 1}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!222 &2221002
+Image:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002}
+  m_Sprite: {fileID: 0}
+  m_PreserveAspect: 1
+--- !u!114 &1141002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000000, type: 3}
+  icon: {fileID: 2221002}
+  slotIndex: 1
+--- !u!1 &1003
+GameObject:
+  m_Component:
+  - component: {fileID: 2241003}
+  - component: {fileID: 2221003}
+  - component: {fileID: 1141003}
+  m_Layer: 5
+  m_Name: Slot
+  m_IsActive: 1
+--- !u!224 &2241003
+RectTransform:
+  m_GameObject: {fileID: 1003}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Father: {fileID: 1}
+  m_RootOrder: 2
+--- !u!222 &2221003
+Image:
+  m_GameObject: {fileID: 1003}
+  m_Sprite: {fileID: 0}
+--- !u!114 &1141003
+MonoBehaviour:
+  m_GameObject: {fileID: 1003}
+  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000000, type: 3}
+  icon: {fileID: 2221003}
+  slotIndex: 2
+--- !u!1 &1004
+GameObject:
+  m_Component:
+  - component: {fileID: 2241004}
+  - component: {fileID: 2221004}
+  - component: {fileID: 1141004}
+  m_Layer: 5
+  m_Name: Slot
+  m_IsActive: 1
+--- !u!224 &2241004
+RectTransform:
+  m_GameObject: {fileID: 1004}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Father: {fileID: 1}
+  m_RootOrder: 3
+--- !u!222 &2221004
+Image:
+  m_GameObject: {fileID: 1004}
+  m_Sprite: {fileID: 0}
+--- !u!114 &1141004
+MonoBehaviour:
+  m_GameObject: {fileID: 1004}
+  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000000, type: 3}
+  icon: {fileID: 2221004}
+  slotIndex: 3
+--- !u!1 &1005
+GameObject:
+  m_Component:
+  - component: {fileID: 2241005}
+  - component: {fileID: 2221005}
+  - component: {fileID: 1141005}
+  m_Layer: 5
+  m_Name: Slot
+  m_IsActive: 1
+--- !u!224 &2241005
+RectTransform:
+  m_GameObject: {fileID: 1005}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Father: {fileID: 1}
+  m_RootOrder: 4
+--- !u!222 &2221005
+Image:
+  m_GameObject: {fileID: 1005}
+  m_Sprite: {fileID: 0}
+--- !u!114 &1141005
+MonoBehaviour:
+  m_GameObject: {fileID: 1005}
+  m_Script: {fileID: 11500000, guid: 00000000000000000000000000000000, type: 3}
+  icon: {fileID: 2221005}
+  slotIndex: 4
