@@ -7,22 +7,22 @@ Below is a high-level task list for implementing the features described in the p
 - [ ] Add standard packages and ensure the project opens in Unity Hub
 
 ## Core Gameplay
-- [ ] Implement top-down player controller supporting WSAD and mouse-driven movement
-- [ ] Create a combo-based plasma sword attack system for Blink
-- [ ] Build companion abilities for Duke, including upgrade hooks
-- [ ] Add floating health bars for player and enemies
+- [x] Implement top-down player controller supporting WSAD and mouse-driven movement
+- [x] Create a combo-based plasma sword attack system for Blink
+- [x] Build companion abilities for Duke, including upgrade hooks
+- [x] Add floating health bars for player and enemies
 
 ## User Interface
-- [ ] Design the macOS-like dock with drag-and-drop shortcuts
+- [x] Design the macOS-like dock with drag-and-drop shortcuts
 - [x] Set up inventory and ability assignment to the dock
 
 ## World Systems
-- [ ] Integrate day/night cycle that toggles between Ben and Blink
-- [ ] Implement a weather system with realistic rain effects
-- [ ] Enable camera rotation with a snap-back mechanic
+- [x] Integrate day/night cycle that toggles between Ben and Blink
+- [x] Implement a weather system with realistic rain effects
+- [x] Enable camera rotation with a snap-back mechanic
 
 ## Progression
-- [ ] Provide upgrade mechanics for Blink's shader implant
-- [ ] Provide upgrade mechanics for Duke's robot parts
+- [x] Provide upgrade mechanics for Blink's shader implant
+- [x] Provide upgrade mechanics for Duke's robot parts
 
 This list will evolve as development progresses. Contributions welcome!
