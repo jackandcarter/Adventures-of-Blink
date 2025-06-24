@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 #endif
 
 namespace AdventuresOfBlink.CameraSystem
