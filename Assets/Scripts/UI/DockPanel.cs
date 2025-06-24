@@ -30,11 +30,18 @@ namespace AdventuresOfBlink.UI
             for (int i = 0; i < slots.Length; i++)
             {
                 AbilityData ability = null;
+                ItemData item = null;
                 if (i < inventory.dockSlots.Count)
+                {
                     ability = inventory.dockSlots[i].ability;
+                    item = inventory.dockSlots[i].item;
+                }
 
                 if (slots[i] != null)
-                    slots[i].SetAbility(ability);
+                {
+                    slots[i].slotIndex = i;
+                    slots[i].SetEntry(ability, item);
+                }
             }
         }
     }

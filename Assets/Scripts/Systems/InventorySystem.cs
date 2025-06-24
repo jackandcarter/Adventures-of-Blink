@@ -64,6 +64,33 @@ namespace AdventuresOfBlink
                 return;
 
             dockSlots[dockIndex].ability = ability;
+            dockSlots[dockIndex].item = null;
+        }
+
+        /// <summary>
+        /// Equips an item to a dock slot.
+        /// </summary>
+        public void EquipItem(int dockIndex, ItemData data)
+        {
+            if (dockIndex < 0 || dockIndex >= dockSlots.Count)
+                return;
+
+            dockSlots[dockIndex].item = data;
+            if (data != null)
+                dockSlots[dockIndex].ability = null;
+        }
+
+        /// <summary>
+        /// Moves a dock slot entry from one index to another, preserving order.
+        /// </summary>
+        public void MoveDockSlot(int from, int to)
+        {
+            if (from < 0 || from >= dockSlots.Count || to < 0 || to >= dockSlots.Count)
+                return;
+
+            var entry = dockSlots[from];
+            dockSlots.RemoveAt(from);
+            dockSlots.Insert(to, entry);
         }
 
         [System.Serializable]
@@ -78,6 +105,9 @@ namespace AdventuresOfBlink
         {
             [Tooltip("Ability equipped to this slot.")]
             public AbilityData ability;
+
+            [Tooltip("Item equipped to this slot.")]
+            public ItemData item;
         }
     }
 }
