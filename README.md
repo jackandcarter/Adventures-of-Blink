@@ -16,6 +16,7 @@ The project is in early setup. The vision includes hack-and-slash battles with a
   - `Art/` – Artwork and textures
   - `Prefabs/` – Prefab assets
   - `Materials/` – Material definitions
+  - `Systems/` – Core runtime systems
 - `Packages/` – Unity package manifest
 - `ProjectSettings/` – Unity project settings
 
@@ -27,3 +28,4 @@ The project is in early setup. The vision includes hack-and-slash battles with a
 All gameplay assets and scripts will live under the `Assets/` folder. Subfolders such as `Scripts/` and `Art/` will grow as new systems are introduced.
 
 Additional systems and tools will be added as development continues.
+The new **InventorySystem** script tracks items and abilities and feeds data to UI panels, including the dock shortcut slots.
