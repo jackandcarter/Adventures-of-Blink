@@ -11,6 +11,9 @@ namespace AdventuresOfBlink.Combat
     /// Uses ComboSequence assets to define attack steps.
     /// </summary>
     [RequireComponent(typeof(Animator))]
+#if ENABLE_INPUT_SYSTEM
+    [RequireComponent(typeof(PlayerInput))]
+#endif
     public class PlasmaSword : MonoBehaviour
     {
         [Tooltip("Ordered abilities making up the combo.")]
@@ -28,20 +31,52 @@ namespace AdventuresOfBlink.Combat
         private Animator animator;
         private int stepIndex;
         private float lastInputTime = -Mathf.Infinity;
+#if ENABLE_INPUT_SYSTEM
+        private PlayerInput playerInput;
+        private InputAction attackAction;
+#endif
 
         private void Awake()
         {
             animator = GetComponent<Animator>();
+#if ENABLE_INPUT_SYSTEM
+            playerInput = GetComponent<PlayerInput>();
+            if (playerInput != null)
+                attackAction = playerInput.actions["Attack"];
+#endif
+        }
+
+        private void OnEnable()
+        {
+#if ENABLE_INPUT_SYSTEM
+            if (attackAction != null)
+                attackAction.performed += OnAttack;
+#endif
+        }
+
+        private void OnDisable()
+        {
+#if ENABLE_INPUT_SYSTEM
+            if (attackAction != null)
+                attackAction.performed -= OnAttack;
+#endif
         }
 
         private void Update()
         {
-#if ENABLE_INPUT_SYSTEM
-            bool pressed = Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame;
-#else
-            bool pressed = Input.GetKeyDown(KeyCode.Space);
+#if !ENABLE_INPUT_SYSTEM
+            if (Input.GetKeyDown(KeyCode.Space))
+                HandleAttack();
 #endif
-            if (!pressed || combo == null || combo.steps.Count == 0)
+        }
+
+#if ENABLE_INPUT_SYSTEM
+        private void OnAttack(InputAction.CallbackContext ctx) => HandleAttack();
+#endif
+
+        private void HandleAttack()
+        {
+            if (combo == null || combo.steps.Count == 0)
                 return;
 
             if (Time.time - lastInputTime > combo.inputWindow)

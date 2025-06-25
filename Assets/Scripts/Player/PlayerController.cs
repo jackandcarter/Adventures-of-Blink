@@ -11,6 +11,9 @@ namespace AdventuresOfBlink.Player
     /// Parameters are exposed so they can be tuned in the Unity Inspector.
     /// </summary>
     [RequireComponent(typeof(CharacterController))]
+#if ENABLE_INPUT_SYSTEM
+    [RequireComponent(typeof(PlayerInput))]
+#endif
     public class PlayerController : MonoBehaviour
     {
         [Header("Movement Settings")]
@@ -25,12 +28,29 @@ namespace AdventuresOfBlink.Player
         private Camera mainCamera;
 
         private Vector3 keyboardVelocity;
+#if ENABLE_INPUT_SYSTEM
+        private PlayerInput playerInput;
+        private InputAction moveAction;
+        private Vector2 moveInput;
+#endif
 
         private void Awake()
         {
             controller = GetComponent<CharacterController>();
             agent = GetComponent<NavMeshAgent>();
             mainCamera = Camera.main;
+#if ENABLE_INPUT_SYSTEM
+            playerInput = GetComponent<PlayerInput>();
+            if (playerInput != null)
+            {
+                moveAction = playerInput.actions["Move"];
+                if (moveAction != null)
+                {
+                    moveAction.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+                    moveAction.canceled += ctx => moveInput = Vector2.zero;
+                }
+            }
+#endif
 
             if (agent != null)
             {
@@ -48,14 +68,10 @@ namespace AdventuresOfBlink.Player
 
         private void HandleKeyboardMovement()
         {
-            Vector2 input = Vector2.zero;
 #if ENABLE_INPUT_SYSTEM
-            if (Keyboard.current != null)
-            {
-                input.x = (Keyboard.current.dKey.isPressed ? 1f : 0f) - (Keyboard.current.aKey.isPressed ? 1f : 0f);
-                input.y = (Keyboard.current.wKey.isPressed ? 1f : 0f) - (Keyboard.current.sKey.isPressed ? 1f : 0f);
-            }
+            Vector2 input = moveInput;
 #else
+            Vector2 input = Vector2.zero;
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
 #endif

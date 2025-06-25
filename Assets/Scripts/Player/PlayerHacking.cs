@@ -10,6 +10,9 @@ namespace AdventuresOfBlink.Player
     /// Enables Blink to hack nearby <see cref="HackableDevice"/> objects
     /// using the interact key.
     /// </summary>
+    #if ENABLE_INPUT_SYSTEM
+    [RequireComponent(typeof(PlayerInput))]
+    #endif
     public class PlayerHacking : MonoBehaviour
     {
         [Tooltip("How far Blink can reach to hack a device.")]
@@ -24,26 +27,42 @@ namespace AdventuresOfBlink.Player
         private HackableDevice activeDevice;
         private float hackTimer;
 #if ENABLE_INPUT_SYSTEM
-        private Key inputKey;
+        private PlayerInput playerInput;
+        private InputAction interactAction;
 #endif
         private void Awake()
         {
 #if ENABLE_INPUT_SYSTEM
-            inputKey = (Key)hackKey;
+            playerInput = GetComponent<PlayerInput>();
+            if (playerInput != null)
+                interactAction = playerInput.actions["Interact"];
+#endif
+        }
+
+        private void OnEnable()
+        {
+#if ENABLE_INPUT_SYSTEM
+            if (interactAction != null)
+                interactAction.performed += OnInteract;
+#endif
+        }
+
+        private void OnDisable()
+        {
+#if ENABLE_INPUT_SYSTEM
+            if (interactAction != null)
+                interactAction.performed -= OnInteract;
 #endif
         }
 
         private void Update()
         {
-#if ENABLE_INPUT_SYSTEM
-            bool pressed = Keyboard.current != null && Keyboard.current[inputKey].wasPressedThisFrame;
-#else
-            bool pressed = Input.GetKeyDown(hackKey);
-#endif
-            if (pressed)
+#if !ENABLE_INPUT_SYSTEM
+            if (Input.GetKeyDown(hackKey))
             {
                 TryStartHack();
             }
+#endif
 
             if (activeDevice != null && hackTimer > 0f)
             {
@@ -52,6 +71,13 @@ namespace AdventuresOfBlink.Player
                     FinishTimedHack();
             }
         }
+
+#if ENABLE_INPUT_SYSTEM
+        private void OnInteract(InputAction.CallbackContext ctx)
+        {
+            TryStartHack();
+        }
+#endif
 
         private void TryStartHack()
         {
