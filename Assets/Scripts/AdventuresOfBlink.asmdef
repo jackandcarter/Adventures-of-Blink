@@ -1,12 +1,11 @@
 {
-  "name": "Tests.EditMode",
+  "name": "AdventuresOfBlink",
   "references": [
-    "UnityEngine.TestRunner",
-    "UnityEditor.TestRunner",
-    "AdventuresOfBlink"
+    "Unity.InputSystem",
+    "Unity.AI.Navigation"
   ],
   "optionalUnityReferences": [],
-  "includePlatforms": ["Editor"],
+  "includePlatforms": [],
   "excludePlatforms": [],
   "allowUnsafeCode": false,
   "overrideReferences": false,
