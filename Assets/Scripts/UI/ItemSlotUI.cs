@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.EventSystems;
 using AdventuresOfBlink.Data;
 
@@ -11,7 +12,7 @@ namespace AdventuresOfBlink.UI
     public class ItemSlotUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler
     {
         public Image icon;
-        public Text quantityText;
+        public TMP_Text quantityText;
 
         private ItemData itemData;
 
