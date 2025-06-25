@@ -134,7 +134,7 @@ namespace AdventuresOfBlink.Systems
                     duke.abilities[i].level = data.dukeLevels[i];
             }
 
-            inventory.InventoryChanged?.Invoke();
+            inventory.InvokeInventoryChanged();
         }
 
         [System.Serializable]
