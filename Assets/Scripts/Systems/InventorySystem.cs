@@ -27,6 +27,16 @@ namespace AdventuresOfBlink
         public event System.Action InventoryChanged;
 
         /// <summary>
+        /// Allows external systems to manually trigger the
+        /// <see cref="InventoryChanged"/> event after modifying
+        /// inventory contents.
+        /// </summary>
+        public void InvokeInventoryChanged()
+        {
+            InventoryChanged?.Invoke();
+        }
+
+        /// <summary>
         /// Adds an item to the inventory or increases the quantity if it exists.
         /// </summary>
         public void AddItem(ItemData item, int quantity = 1)
