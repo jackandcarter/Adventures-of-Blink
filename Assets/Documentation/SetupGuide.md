@@ -69,9 +69,10 @@ Save this file inside the `Assets` folder so Unity imports it as a `TextAsset` a
 3. Example models `NeonSign.obj` and `WallPanel.obj` demonstrate simple planes for signage and walls.
 
 ## Cinemachine Camera
-1. Add the **Cinemachine** package and create a `CinemachineVirtualCamera`.
-2. Set the virtual camera to follow and look at the player.
-3. You can still attach `CameraController` for manual orbiting while Cinemachine handles framing.
+1. Add a `CinemachineBrain` component to the main camera.
+2. Create a `CinemachineVirtualCamera` and set **Follow** and **Look At** to the player.
+3. Adjust the virtual camera's lens settings and damping values for smooth orbiting.
+4. `CameraController` can coexist with Cinemachine so you still have manual control when needed.
 
 ## Trigger Volumes
 1. Add a `TriggerVolume` component to a collider marked **Is Trigger**.
