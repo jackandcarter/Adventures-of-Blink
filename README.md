@@ -41,3 +41,10 @@ Default bindings for the **Player** action map are:
 - **Jump** – Space bar or gamepad south button
 - **Crouch** – `C` key or gamepad east button
 - **Sprint** – Left Shift or left stick press
+
+## Saving and Loading
+The `SaveGame` component persists the player's inventory and upgrade levels.
+1. Place the script on a persistent object in your scene.
+2. Assign your scene's `InventorySystem` and `DukeController` to the fields.
+Data is stored as JSON at `Application.persistentDataPath/save.json` using
+`SaveUtility`.
