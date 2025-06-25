@@ -13,9 +13,17 @@ This guide outlines how to configure core systems in **Adventures of Blink**. Fo
    - `CharacterController`
    - `NavMeshAgent`
    - `PlayerController`
+   - `PlayerInput` (assign `InputSystem_Actions` and set **Default Map** to `Player`)
 3. `PlayerController` exposes two main fields:
    - `moveSpeed` – movement speed when using the keyboard.
    - `rotationSpeed` – how quickly the character turns toward movement.
+4. Default controls using the **Player** action map:
+   - **Move** – WASD or left stick
+   - **Attack** – Left mouse button or gamepad west button
+   - **Interact** – `E` key or gamepad north button
+   - **Jump** – Space bar or gamepad south button
+   - **Crouch** – `C` key or gamepad east button
+   - **Sprint** – Left Shift or left stick press
 
 ## Camera
 1. Create a camera prefab or add a `CameraController` component to an existing camera.
