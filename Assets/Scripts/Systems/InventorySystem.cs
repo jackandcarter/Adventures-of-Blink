@@ -22,6 +22,11 @@ namespace AdventuresOfBlink
         public List<DockSlot> dockSlots = new();
 
         /// <summary>
+        /// Raised whenever the inventory contents or dock slots change.
+        /// </summary>
+        public event System.Action InventoryChanged;
+
+        /// <summary>
         /// Adds an item to the inventory or increases the quantity if it exists.
         /// </summary>
         public void AddItem(ItemData item, int quantity = 1)
@@ -38,6 +43,8 @@ namespace AdventuresOfBlink
             {
                 items.Add(new ItemEntry { data = item, quantity = quantity });
             }
+
+            InventoryChanged?.Invoke();
         }
 
         /// <summary>
@@ -52,6 +59,8 @@ namespace AdventuresOfBlink
             entry.quantity -= quantity;
             if (entry.quantity <= 0)
                 items.Remove(entry);
+
+            InventoryChanged?.Invoke();
             return true;
         }
 
@@ -65,6 +74,8 @@ namespace AdventuresOfBlink
 
             dockSlots[dockIndex].ability = ability;
             dockSlots[dockIndex].item = null;
+
+            InventoryChanged?.Invoke();
         }
 
         /// <summary>
@@ -78,6 +89,8 @@ namespace AdventuresOfBlink
             dockSlots[dockIndex].item = data;
             if (data != null)
                 dockSlots[dockIndex].ability = null;
+
+            InventoryChanged?.Invoke();
         }
 
         /// <summary>
@@ -91,6 +104,8 @@ namespace AdventuresOfBlink
             var entry = dockSlots[from];
             dockSlots.RemoveAt(from);
             dockSlots.Insert(to, entry);
+
+            InventoryChanged?.Invoke();
         }
 
         [System.Serializable]

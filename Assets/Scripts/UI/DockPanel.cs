@@ -16,7 +16,15 @@ namespace AdventuresOfBlink.UI
 
         private void OnEnable()
         {
+            if (inventory != null)
+                inventory.InventoryChanged += Refresh;
             Refresh();
+        }
+
+        private void OnDisable()
+        {
+            if (inventory != null)
+                inventory.InventoryChanged -= Refresh;
         }
 
         /// <summary>
