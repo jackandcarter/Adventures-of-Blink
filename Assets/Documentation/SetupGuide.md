@@ -32,7 +32,7 @@ This guide outlines how to configure core systems in **Adventures of Blink**. Fo
 ## Inventory and UI
 1. Add an `InventorySystem` component to a persistent object (e.g. an empty `Managers` GameObject).
 2. Link UI panels to this inventory:
-   - **DockPanel** – set its `inventory` reference so dock slots reflect equipped items or abilities.
+   - **DockPanel** – set its `inventory` reference so dock slots reflect equipped items or abilities. See [Dock Guide](DockGuide.md) for detailed setup.
    - **InventoryPanel** – also assign the same `InventorySystem` for listing items.
    - **UpgradePanel** – requires an `UpgradeSystem` (see below) but will also reference the inventory through that system.
 
