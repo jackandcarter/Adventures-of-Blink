@@ -13,5 +13,7 @@ namespace AdventuresOfBlink.Data
         public int attack = 10;
         public int defense = 5;
         public int speed = 5;
+        public int logic;
+        public int energy = 5;
     }
 }
