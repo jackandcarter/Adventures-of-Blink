@@ -65,6 +65,8 @@ namespace AdventuresOfBlink.Systems
                 stats.bonusAttack += upgrade.statBoost.attack;
                 stats.bonusDefense += upgrade.statBoost.defense;
                 stats.bonusSpeed += upgrade.statBoost.speed;
+                stats.bonusLogic += upgrade.statBoost.logic;
+                stats.bonusEnergy += upgrade.statBoost.energy;
             }
 
             if (upgrade.dukeAbilityIndex >= 0 && duke != null)

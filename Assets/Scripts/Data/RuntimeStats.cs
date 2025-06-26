@@ -14,18 +14,24 @@ namespace AdventuresOfBlink.Data
         public int baseAttack;
         public int baseDefense;
         public int baseSpeed;
+        public int baseLogic;
+        public int baseEnergy;
 
         [Header("Additive Modifiers")]
         public int bonusMaxHealth;
         public int bonusAttack;
         public int bonusDefense;
         public int bonusSpeed;
+        public int bonusLogic;
+        public int bonusEnergy;
 
         [Header("Percentage Modifiers")]
         public float percentMaxHealth;
         public float percentAttack;
         public float percentDefense;
         public float percentSpeed;
+        public float percentLogic;
+        public float percentEnergy;
 
         public RuntimeStats() { }
 
@@ -45,11 +51,15 @@ namespace AdventuresOfBlink.Data
             baseAttack = source.attack;
             baseDefense = source.defense;
             baseSpeed = source.speed;
+            baseLogic = source.logic;
+            baseEnergy = source.energy;
         }
 
         public int MaxHealth => Mathf.RoundToInt((baseMaxHealth + bonusMaxHealth) * (1f + percentMaxHealth));
         public int Attack => Mathf.RoundToInt((baseAttack + bonusAttack) * (1f + percentAttack));
         public int Defense => Mathf.RoundToInt((baseDefense + bonusDefense) * (1f + percentDefense));
         public int Speed => Mathf.RoundToInt((baseSpeed + bonusSpeed) * (1f + percentSpeed));
+        public int Logic => Mathf.RoundToInt((baseLogic + bonusLogic) * (1f + percentLogic));
+        public int Energy => Mathf.RoundToInt((baseEnergy + bonusEnergy) * (1f + percentEnergy));
     }
 }
