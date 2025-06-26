@@ -49,3 +49,14 @@ The `SaveGame` component persists the player's inventory and upgrade levels.
 2. Assign your scene's `InventorySystem` and `DukeController` to the fields.
 Data is stored as JSON at `Application.persistentDataPath/save.json` using
 `SaveUtility`.
+
+## Local Test Setup
+Edit Mode unit tests can be executed using Docker. First run `scripts/setup.sh`
+to pull the Unity editor image. Then set your `UNITY_LICENSE` environment
+variable and execute `scripts/run-tests.sh`.
+
+```bash
+$ ./scripts/setup.sh
+$ export UNITY_LICENSE="<your license string>"
+$ ./scripts/run-tests.sh
+```
