@@ -58,13 +58,13 @@ namespace AdventuresOfBlink.Systems
             if (upgrade.abilityUnlock != null && !inventory.abilities.Contains(upgrade.abilityUnlock))
                 inventory.abilities.Add(upgrade.abilityUnlock);
 
-            if (upgrade.statBoost != null && playerForms != null && playerForms.blinkStats != null)
+            if (upgrade.statBoost != null && playerForms != null && playerForms.BlinkRuntime != null)
             {
-                var stats = playerForms.blinkStats;
-                stats.maxHealth += upgrade.statBoost.health;
-                stats.attack += upgrade.statBoost.attack;
-                stats.defense += upgrade.statBoost.defense;
-                stats.speed += upgrade.statBoost.speed;
+                var stats = playerForms.BlinkRuntime;
+                stats.bonusMaxHealth += upgrade.statBoost.health;
+                stats.bonusAttack += upgrade.statBoost.attack;
+                stats.bonusDefense += upgrade.statBoost.defense;
+                stats.bonusSpeed += upgrade.statBoost.speed;
             }
 
             if (upgrade.dukeAbilityIndex >= 0 && duke != null)

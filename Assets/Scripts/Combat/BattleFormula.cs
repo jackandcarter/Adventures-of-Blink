@@ -8,10 +8,10 @@ namespace AdventuresOfBlink.Combat
     /// </summary>
     public static class BattleFormula
     {
-        public static float CalculateDamage(CharacterStats attacker, CharacterStats defender, AbilityData ability)
+        public static float CalculateDamage(RuntimeStats attacker, RuntimeStats defender, AbilityData ability)
         {
-            float attackPower = attacker.attack + ability.baseDamage;
-            float damage = attackPower - defender.defense;
+            float attackPower = attacker.Attack + ability.baseDamage;
+            float damage = attackPower - defender.Defense;
             return UnityEngine.Mathf.Max(1f, damage);
         }
     }
