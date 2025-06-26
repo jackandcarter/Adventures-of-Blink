@@ -25,6 +25,10 @@ namespace AdventuresOfBlink.Data
         public int bonusLogic;
         public int bonusEnergy;
 
+        [Header("Runtime Values")]
+        [Tooltip("Current energy available for abilities.")]
+        public int currentEnergy;
+
         [Header("Percentage Modifiers")]
         public float percentMaxHealth;
         public float percentAttack;
@@ -53,6 +57,7 @@ namespace AdventuresOfBlink.Data
             baseSpeed = source.speed;
             baseLogic = source.logic;
             baseEnergy = source.energy;
+            currentEnergy = Energy;
         }
 
         public int MaxHealth => Mathf.RoundToInt((baseMaxHealth + bonusMaxHealth) * (1f + percentMaxHealth));
@@ -61,5 +66,16 @@ namespace AdventuresOfBlink.Data
         public int Speed => Mathf.RoundToInt((baseSpeed + bonusSpeed) * (1f + percentSpeed));
         public int Logic => Mathf.RoundToInt((baseLogic + bonusLogic) * (1f + percentLogic));
         public int Energy => Mathf.RoundToInt((baseEnergy + bonusEnergy) * (1f + percentEnergy));
+
+        /// <summary>
+        /// Consumes energy if available and returns true on success.
+        /// </summary>
+        public bool ConsumeEnergy(int amount)
+        {
+            if (currentEnergy < amount)
+                return false;
+            currentEnergy -= amount;
+            return true;
+        }
     }
 }

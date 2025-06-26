@@ -89,6 +89,15 @@ namespace AdventuresOfBlink.Combat
 
         private void PerformAttack(AbilityData ability)
         {
+            if (attacker != null && ability.energyCost > 0)
+            {
+                if (!attacker.ConsumeEnergy(ability.energyCost))
+                {
+                    Debug.Log($"Not enough energy for {ability.abilityName}");
+                    return;
+                }
+            }
+
             if (animator != null && ability.animationClip != null)
             {
                 float speed = (attacker != null ? attacker.Speed : 1f) * speedMultiplier;
