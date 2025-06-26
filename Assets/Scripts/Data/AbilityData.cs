@@ -24,6 +24,7 @@ namespace AdventuresOfBlink.Data
 
         [Header("Combat")]
         public float baseDamage = 1f;
+        public int energyCost = 0;
         public float cooldown = 0f;
         public AnimationClip animationClip;
     }
