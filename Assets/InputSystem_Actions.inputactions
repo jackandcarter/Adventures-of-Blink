@@ -512,7 +512,7 @@
                     "action": "CycleTarget",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
+                },
                 {
                     "name": "",
                     "id": "3b3ed86d-12b5-4197-82b7-b5d7f6b10cc0",
@@ -534,7 +534,7 @@
                     "action": "SwitchForm",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
+                }
             ]
         },
         {
