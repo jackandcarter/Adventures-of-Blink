@@ -20,10 +20,10 @@ namespace AdventuresOfBlink.Combat
         public ComboSequence combo;
 
         [Tooltip("Stats of the attacker performing the combo.")]
-        public CharacterStats attacker;
+        public RuntimeStats attacker;
 
         [Tooltip("Optional stats of the current target receiving damage.")]
-        public CharacterStats target;
+        public RuntimeStats target;
 
         [Tooltip("Multiplier applied to attack speed from upgrades.")]
         public float speedMultiplier = 1f;
@@ -91,7 +91,7 @@ namespace AdventuresOfBlink.Combat
         {
             if (animator != null && ability.animationClip != null)
             {
-                float speed = (attacker != null ? attacker.speed : 1f) * speedMultiplier;
+                float speed = (attacker != null ? attacker.Speed : 1f) * speedMultiplier;
                 animator.speed = speed;
                 animator.Play(ability.animationClip.name);
             }

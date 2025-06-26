@@ -12,6 +12,6 @@ namespace AdventuresOfBlink.Targeting
         public string displayName;
 
         [Tooltip("Optional stats associated with this target.")]
-        public CharacterStats stats;
+        public RuntimeStats stats;
     }
 }

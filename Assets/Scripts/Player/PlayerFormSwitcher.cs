@@ -23,11 +23,19 @@ namespace AdventuresOfBlink.Player
         public GameObject blinkModel;
 
         [Header("Form Stats")]
+        [Tooltip("Base stats asset for Ben.")]
         public CharacterStats benStats;
+        [Tooltip("Base stats asset for Blink.")]
         public CharacterStats blinkStats;
 
-        [Tooltip("Active stats used by other systems.")]
-        public CharacterStats currentStats;
+        [Tooltip("Runtime stats for the active form.")]
+        public RuntimeStats currentStats;
+
+        private RuntimeStats benRuntime;
+        private RuntimeStats blinkRuntime;
+
+        public RuntimeStats BenRuntime => benRuntime;
+        public RuntimeStats BlinkRuntime => blinkRuntime;
 
         [Tooltip("Keyboard key used to switch forms.")]
         public KeyCode switchKey = KeyCode.Tab;
@@ -42,6 +50,8 @@ namespace AdventuresOfBlink.Player
 #if ENABLE_INPUT_SYSTEM
             inputKey = (Key)switchKey;
 #endif
+            benRuntime = new RuntimeStats(benStats);
+            blinkRuntime = new RuntimeStats(blinkStats);
             SetForm(false);
         }
 
@@ -65,7 +75,7 @@ namespace AdventuresOfBlink.Player
                 benModel.SetActive(!blink);
             if (blinkModel != null)
                 blinkModel.SetActive(blink);
-            currentStats = blink ? blinkStats : benStats;
+            currentStats = blink ? blinkRuntime : benRuntime;
         }
     }
 }

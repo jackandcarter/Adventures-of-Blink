@@ -14,7 +14,7 @@ namespace AdventuresOfBlink.UI
         public Slider slider;
 
         [Tooltip("Character stats providing max health.")]
-        public CharacterStats stats;
+        public RuntimeStats stats;
 
         [Tooltip("Current health value.")]
         public int currentHealth;
@@ -31,7 +31,7 @@ namespace AdventuresOfBlink.UI
         private void Awake()
         {
             if (stats != null)
-                currentHealth = stats.maxHealth;
+                currentHealth = stats.MaxHealth;
             UpdateBar();
         }
 
@@ -62,7 +62,7 @@ namespace AdventuresOfBlink.UI
         /// </summary>
         public void Heal(int amount)
         {
-            int max = stats != null ? stats.maxHealth : currentHealth;
+            int max = stats != null ? stats.MaxHealth : currentHealth;
             currentHealth = Mathf.Min(max, currentHealth + amount);
             UpdateBar();
         }
@@ -71,7 +71,7 @@ namespace AdventuresOfBlink.UI
         {
             if (slider == null)
                 return;
-            int max = stats != null ? stats.maxHealth : currentHealth;
+            int max = stats != null ? stats.MaxHealth : currentHealth;
             slider.value = max > 0 ? (float)currentHealth / max : 0f;
         }
     }

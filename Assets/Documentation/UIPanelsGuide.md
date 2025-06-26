@@ -37,7 +37,7 @@ This guide explains how to assemble and connect the user interface components in
 ## Health Bars
 1. To show floating health for characters, create a prefab with a `Slider` UI element.
 2. Add the `HealthBar` component.
-3. Assign the host's `CharacterStats` to **stats** and set **blinkTransform** to the player if visibility range is needed.
+3. Assign the host's `RuntimeStats` to **stats** and set **blinkTransform** to the player if visibility range is needed.
 4. Enable **alwaysVisible** to keep the bar displayed regardless of distance.
 
 Save this file inside the `Assets` folder so Unity imports it as a TextAsset.
