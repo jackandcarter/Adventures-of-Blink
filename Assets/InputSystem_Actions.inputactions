@@ -94,6 +94,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchForm",
+                    "type": "Button",
+                    "id": "11e5e70a-b12c-49c6-89e1-6909a3fe6f73",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -504,6 +513,28 @@
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
+                {
+                    "name": "",
+                    "id": "3b3ed86d-12b5-4197-82b7-b5d7f6b10cc0",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "SwitchForm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aca3146f-878e-40d8-9b79-2ab455e7d651",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "SwitchForm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
             ]
         },
         {

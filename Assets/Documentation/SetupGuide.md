@@ -24,6 +24,7 @@ This guide outlines how to configure core systems in **Adventures of Blink**. Fo
    - **Jump** – Space bar or gamepad south button
    - **Crouch** – `C` key or gamepad east button
    - **Sprint** – Left Shift or left stick press
+   - **Switch Form** – `F` key or gamepad left shoulder
 
 ## Camera
 1. Create a camera prefab or add a `CameraController` component to an existing camera.

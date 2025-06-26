@@ -29,7 +29,7 @@ All gameplay assets and scripts will live under the `Assets/` folder. Subfolders
 
 Additional systems and tools will be added as development continues.
 The new **InventorySystem** script tracks items and abilities and feeds data to UI panels, including the dock shortcut slots.
-The **DayNightCycle** manager controls lighting over time, and **PlayerFormSwitcher** lets you press Tab at night to toggle between Ben and Blink.
+The **DayNightCycle** manager controls lighting over time, and **PlayerFormSwitcher** lets you use the Switch Form action (default `F`) at night to toggle between Ben and Blink.
 
 ## Controls
 The project uses the Input System with the `InputSystem_Actions` asset.
@@ -41,6 +41,7 @@ Default bindings for the **Player** action map are:
 - **Jump** – Space bar or gamepad south button
 - **Crouch** – `C` key or gamepad east button
 - **Sprint** – Left Shift or left stick press
+- **Switch Form** – `F` key or gamepad left shoulder
 
 ## Saving and Loading
 The `SaveGame` component persists the player's inventory and upgrade levels.
