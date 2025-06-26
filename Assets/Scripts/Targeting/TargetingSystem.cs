@@ -8,6 +8,9 @@ namespace AdventuresOfBlink.Targeting
     /// <summary>
     /// Handles selecting and cycling between <see cref="Targetable"/> objects.
     /// </summary>
+    #if ENABLE_INPUT_SYSTEM
+    [RequireComponent(typeof(PlayerInput))]
+    #endif
     public class TargetingSystem : MonoBehaviour
     {
         /// <summary>
@@ -16,9 +19,8 @@ namespace AdventuresOfBlink.Targeting
         public Targetable CurrentTarget { get; private set; }
 
 #if ENABLE_INPUT_SYSTEM
-        [Tooltip("Input action used to cycle targets.")]
-        public InputActionReference cycleTargetAction;
-        private InputAction _cycleAction;
+        private PlayerInput playerInput;
+        private InputAction cycleAction;
 #endif
 
         /// <summary>
@@ -27,22 +29,28 @@ namespace AdventuresOfBlink.Targeting
         public event System.Action<Targetable> TargetChanged;
 
 #if ENABLE_INPUT_SYSTEM
+        private void Awake()
+        {
+            playerInput = GetComponent<PlayerInput>();
+            if (playerInput != null)
+                cycleAction = playerInput.actions["CycleTarget"];
+        }
+
         private void OnEnable()
         {
-            if (cycleTargetAction != null)
+            if (cycleAction != null)
             {
-                _cycleAction = cycleTargetAction.action;
-                _cycleAction.performed += OnCyclePerformed;
-                _cycleAction.Enable();
+                cycleAction.performed += OnCyclePerformed;
+                cycleAction.Enable();
             }
         }
 
         private void OnDisable()
         {
-            if (_cycleAction != null)
+            if (cycleAction != null)
             {
-                _cycleAction.performed -= OnCyclePerformed;
-                _cycleAction.Disable();
+                cycleAction.performed -= OnCyclePerformed;
+                cycleAction.Disable();
             }
         }
 #endif
@@ -50,7 +58,7 @@ namespace AdventuresOfBlink.Targeting
         private void Update()
         {
 #if ENABLE_INPUT_SYSTEM
-            if (_cycleAction == null)
+            if (cycleAction == null)
             {
                 bool pressed = Keyboard.current != null && Keyboard.current[Key.Tab].wasPressedThisFrame;
                 if (pressed)
