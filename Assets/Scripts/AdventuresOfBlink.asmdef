@@ -2,7 +2,8 @@
   "name": "AdventuresOfBlink",
   "references": [
     "Unity.InputSystem",
-    "Unity.AI.Navigation"
+    "Unity.AI.Navigation",
+    "Unity.TextMeshPro"
   ],
   "optionalUnityReferences": [],
   "includePlatforms": [],
