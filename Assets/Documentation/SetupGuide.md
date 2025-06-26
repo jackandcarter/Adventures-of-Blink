@@ -2,6 +2,39 @@
 
 This guide outlines how to configure core systems in **Adventures of Blink**. Follow these steps after creating a new scene.
 
+## Package Dependencies
+
+The project relies on several Unity packages. Ensure these appear in `Packages/manifest.json` with the versions below:
+
+| Package | Version | Purpose |
+| --- | --- | --- |
+| `com.unity.inputsystem` | 1.14.0 | Player input handling. |
+| `com.unity.render-pipelines.universal` | 17.1.0 | Universal Render Pipeline (URP). |
+| `com.unity.textmeshpro` | 3.0.1 | Rich text for UI and dialogues. |
+| `com.unity.ai.navigation` | 2.0.8 | NavMesh pathfinding utilities. |
+| `com.unity.timeline` | 1.8.7 | Sequencing cutscenes. |
+| `com.unity.test-framework` | 1.5.1 | Running edit mode tests. |
+| `com.unity.ugui` | 2.0.0 | Built‑in UI system. |
+| `com.unity.visualscripting` | 1.9.7 | Visual scripting support. |
+| `com.unity.ide.rider` | 3.0.36 | JetBrains Rider integration. |
+| `com.unity.ide.visualstudio` | 2.0.23 | Visual Studio integration. |
+| `com.unity.collab-proxy` | 2.8.2 | Unity Collaborate service. |
+| `com.unity.multiplayer.center` | 1.0.0 | Multiplayer session tools. |
+
+### Optional packages
+
+- `com.unity.probuilder` – level prototyping.
+- `com.unity.cinemachine` – advanced camera control.
+- `com.unity.postprocessing` – post‑processing effects.
+
+### Additional systems
+
+Add these components to your scene for full functionality:
+
+- `DayNightCycle` – animates lighting over time.
+- `WeatherController` – toggles rain and ambient changes.
+- `SaveGame` – loads and saves player data.
+
 ## Enable the Input System
 1. Install the **Input System** package if it is not already listed in `Packages/manifest.json`.
 2. Open **Edit > Project Settings > Input System Package** and assign `Assets/InputSystem_Actions.inputactions` as the default actions asset.
