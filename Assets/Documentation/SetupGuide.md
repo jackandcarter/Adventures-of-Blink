@@ -51,6 +51,7 @@ This guide outlines how to configure core systems in **Adventures of Blink**. Fo
    - **InventoryPanel** – also assign the same `InventorySystem` for listing items.
    - **UpgradePanel** – requires an `UpgradeSystem` (see below) but will also reference the inventory through that system.
    - For a walkthrough of each UI component see [UI Panels Guide](UIPanelsGuide.md).
+3. Place your `ItemData` assets under `Assets/Resources/Items` and `AbilityData` assets under `Assets/Resources/Abilities`. This allows `SaveUtility` to locate them using `Resources.Load`.
 
 ## World Managers
 1. Place a `DayNightCycle` component in the scene to animate lighting throughout the day.

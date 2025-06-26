@@ -49,3 +49,6 @@ The `SaveGame` component persists the player's inventory and upgrade levels.
 2. Assign your scene's `InventorySystem` and `DukeController` to the fields.
 Data is stored as JSON at `Application.persistentDataPath/save.json` using
 `SaveUtility`.
+Item and ability ScriptableObjects must be placed under `Assets/Resources/Items`
+and `Assets/Resources/Abilities` respectively so they can be loaded when a save
+game is restored.
