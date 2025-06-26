@@ -37,6 +37,12 @@ This guide outlines how to configure core systems in **Adventures of Blink**. Fo
 2. Assign the player to the **target** field so Duke can follow.
 3. Populate the **Abilities** list with `DukeAbilityData` assets to define Duke's actions.
 
+## Targeting System
+1. Add a `TargetingSystem` component to the player or a persistent manager object.
+2. Attach `Targetable` to each enemy or NPC and set their **displayName** and optional `RuntimeStats`.
+3. Place `TargetPanel.prefab` under your canvas and assign its **targetingSystem** field.
+4. Press **Tab** in play mode to cycle between nearby targets. See [Targeting Guide](TargetingGuide.md) for full details.
+
 ## Inventory and UI
 1. Add an `InventorySystem` component to a persistent object (e.g. an empty `Managers` GameObject).
 2. Link UI panels to this inventory:
