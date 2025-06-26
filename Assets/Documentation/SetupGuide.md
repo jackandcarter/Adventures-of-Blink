@@ -43,6 +43,7 @@ This guide outlines how to configure core systems in **Adventures of Blink**. Fo
    - **DockPanel** – set its `inventory` reference so dock slots reflect equipped items or abilities. See [Dock Guide](DockGuide.md) for detailed setup.
    - **InventoryPanel** – also assign the same `InventorySystem` for listing items.
    - **UpgradePanel** – requires an `UpgradeSystem` (see below) but will also reference the inventory through that system.
+   - For a walkthrough of each UI component see [UI Panels Guide](UIPanelsGuide.md).
 
 ## World Managers
 1. Place a `DayNightCycle` component in the scene to animate lighting throughout the day.

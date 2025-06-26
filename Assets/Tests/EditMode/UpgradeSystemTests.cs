@@ -4,6 +4,7 @@ using AdventuresOfBlink;
 using AdventuresOfBlink.Data;
 using AdventuresOfBlink.Systems;
 using AdventuresOfBlink.Companion;
+using AdventuresOfBlink.Player;
 
 public class UpgradeSystemTests
 {
