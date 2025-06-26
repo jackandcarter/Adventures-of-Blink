@@ -38,27 +38,54 @@ namespace AdventuresOfBlink.Player
         public RuntimeStats BlinkRuntime => blinkRuntime;
 
         [Tooltip("Keyboard key used to switch forms.")]
-        public KeyCode switchKey = KeyCode.Tab;
+        public KeyCode switchKey = KeyCode.F;
 
         private bool isBlink;
 #if ENABLE_INPUT_SYSTEM
         private Key inputKey;
+        private PlayerInput playerInput;
+        private InputAction switchAction;
 #endif
 
         private void Awake()
         {
 #if ENABLE_INPUT_SYSTEM
             inputKey = (Key)switchKey;
+            playerInput = GetComponent<PlayerInput>();
+            if (playerInput != null)
+                switchAction = playerInput.actions["SwitchForm"];
 #endif
             benRuntime = new RuntimeStats(benStats);
             blinkRuntime = new RuntimeStats(blinkStats);
             SetForm(false);
         }
 
+#if ENABLE_INPUT_SYSTEM
+        private void OnEnable()
+        {
+            if (switchAction != null)
+            {
+                switchAction.performed += OnSwitchPerformed;
+                switchAction.Enable();
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (switchAction != null)
+            {
+                switchAction.performed -= OnSwitchPerformed;
+                switchAction.Disable();
+            }
+        }
+#endif
+
         private void Update()
         {
 #if ENABLE_INPUT_SYSTEM
-            bool pressed = Keyboard.current != null && Keyboard.current[inputKey].wasPressedThisFrame;
+            bool pressed = false;
+            if (switchAction == null)
+                pressed = Keyboard.current != null && Keyboard.current[inputKey].wasPressedThisFrame;
 #else
             bool pressed = Input.GetKeyDown(switchKey);
 #endif
@@ -67,6 +94,14 @@ namespace AdventuresOfBlink.Player
                 SetForm(!isBlink);
             }
         }
+
+#if ENABLE_INPUT_SYSTEM
+        private void OnSwitchPerformed(InputAction.CallbackContext ctx)
+        {
+            if (ctx.performed && cycle != null && cycle.IsNight)
+                SetForm(!isBlink);
+        }
+#endif
 
         private void SetForm(bool blink)
         {
