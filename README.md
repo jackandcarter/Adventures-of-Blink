@@ -56,8 +56,10 @@ Data is stored as JSON at `Application.persistentDataPath/save.json` using
 
 ## Local Test Setup
 Edit Mode unit tests can be executed using Docker. First run `scripts/setup.sh`
-to pull the Unity editor image. Then set your `UNITY_LICENSE` environment
-variable and execute `scripts/run-tests.sh`.
+to pull the Unity editor image. The helper scripts automatically read the Unity
+version from `ProjectSettings/ProjectVersion.txt`, so the container always
+matches your project. After setup, set the `UNITY_LICENSE` environment variable
+and execute `scripts/run-tests.sh`.
 
 Item and ability ScriptableObjects must be placed under `Assets/Resources/Items`
 and `Assets/Resources/Abilities` respectively so they can be loaded when a save

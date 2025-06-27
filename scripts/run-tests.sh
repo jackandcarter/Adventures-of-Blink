@@ -2,7 +2,12 @@
 # Execute Unity Edit Mode tests inside a Docker container
 set -e
 
-UNITY_VERSION="2022.3.0f1"
+PROJECT_VERSION_FILE="${PROJECT_VERSION_FILE:-ProjectSettings/ProjectVersion.txt}"
+if [[ -f "$PROJECT_VERSION_FILE" ]]; then
+    UNITY_VERSION=$(grep m_EditorVersion "$PROJECT_VERSION_FILE" | awk '{print $2}')
+else
+    UNITY_VERSION="2022.3.0f1"
+fi
 IMAGE="unityci/editor:${UNITY_VERSION}-base-0"
 
 PROJECT_PATH="/project"
