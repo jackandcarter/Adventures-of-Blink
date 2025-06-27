@@ -24,6 +24,9 @@ The project is in early setup. The vision includes hack-and-slash battles with a
 1. Clone or download this repository.
 2. In Unity Hub, click **Add project** and select the cloned folder.
 3. Open with **Unity 6.1.0f1**.
+4. Follow the [Setup Guide](Assets/Documentation/SetupGuide.md) for scene
+   configuration and see the [World Building Guide](Assets/Documentation/WorldBuildingGuide.md)
+   for terrain and level layout tips.
 
 All gameplay assets and scripts will live under the `Assets/` folder. Subfolders such as `Scripts/` and `Art/` will grow as new systems are introduced.
 
