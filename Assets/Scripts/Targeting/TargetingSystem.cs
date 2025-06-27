@@ -85,7 +85,7 @@ namespace AdventuresOfBlink.Targeting
         /// </summary>
         public void CycleTarget()
         {
-            Targetable[] targets = FindObjectsOfType<Targetable>();
+            Targetable[] targets = FindObjectsByType<Targetable>(FindObjectsSortMode.None);
             if (targets.Length == 0)
             {
                 SetTarget(null);
