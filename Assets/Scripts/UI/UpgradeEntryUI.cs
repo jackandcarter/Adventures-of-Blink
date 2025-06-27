@@ -1,6 +1,7 @@
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using AdventuresOfBlink.Data;
 using AdventuresOfBlink.Systems;
 
@@ -12,8 +13,8 @@ namespace AdventuresOfBlink.UI
     public class UpgradeEntryUI : MonoBehaviour
     {
         public Image icon;
-        public Text nameText;
-        public Text costText;
+        public TMP_Text nameText;
+        public TMP_Text costText;
         public Button upgradeButton;
 
         private UpgradeData data;

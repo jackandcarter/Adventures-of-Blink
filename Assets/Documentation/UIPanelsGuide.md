@@ -48,7 +48,7 @@ Dock slots update automatically through the `InventorySystem.InventoryChanged` e
    - Assign **entryPrefab** as described below.
    - Fill **availableUpgrades** with `UpgradeData` assets.
 4. Create an upgrade entry prefab:
-   - Include an `Image` for the icon, two `Text` components for the name and cost, and a `Button`.
+   - Include an `Image` for the icon, two **TMP_Text** components for the name and cost, and a `Button`.
    - Attach `UpgradeEntryUI` and link its fields.
 5. `UpgradePanel` populates entries on enable and each button calls `UpgradeSystem.ApplyUpgrade`. The upgrade system references the same `InventorySystem` to deduct materials and unlock abilities.
 
