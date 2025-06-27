@@ -26,6 +26,7 @@ The project relies on several Unity packages. Ensure these appear in `Packages/m
 - `com.unity.probuilder` – level prototyping.
 - `com.unity.cinemachine` – advanced camera control.
 - `com.unity.postprocessing` – post‑processing effects.
+- `com.unity.terrain-tools` – terrain editing utilities.
 
 ### Additional systems
 
@@ -118,6 +119,8 @@ Save this file inside the `Assets` folder so Unity imports it as a `TextAsset` a
 1. Install the **ProBuilder** package from the package manager.
 2. Use ProBuilder shapes to block out buildings and streets. Save meshes to the `Assets/Models` folder for reuse.
 3. Example models `NeonSign.obj` and `WallPanel.obj` demonstrate simple planes for signage and walls.
+4. See the [World Building Guide](WorldBuildingGuide.md) for detailed terrain and
+   modular construction steps.
 
 ## Cinemachine Camera
 1. Add a `CinemachineBrain` component to the main camera.
