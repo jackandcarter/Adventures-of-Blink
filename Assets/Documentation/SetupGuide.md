@@ -86,6 +86,7 @@ Add these components to your scene for full functionality:
    - **UpgradePanel** – requires an `UpgradeSystem` (see below) but will also reference the inventory through that system.
    - For a walkthrough of each UI component see [UI Panels Guide](UIPanelsGuide.md).
 3. Place your `ItemData` assets under `Assets/Resources/Items` and `AbilityData` assets under `Assets/Resources/Abilities`. This allows `SaveUtility` to locate them using `Resources.Load`.
+4. Right-click any item slot in the inventory to open a context menu and select **Drop Item**. The item spawns in front of the player as a `WorldItem` that can be picked up later. Right-click a `WorldItem` in the scene and choose **Pick Up** to collect it.
 
 ## World Managers
 1. Place a `DayNightCycle` component in the scene to animate lighting throughout the day.
