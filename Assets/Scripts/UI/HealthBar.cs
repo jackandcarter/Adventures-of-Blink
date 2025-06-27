@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using AdventuresOfBlink.Data;
+using AdventuresOfBlink.Combat;
 
 namespace AdventuresOfBlink.UI
 {
@@ -13,11 +13,8 @@ namespace AdventuresOfBlink.UI
         [Tooltip("Slider UI element used to show health percentage.")]
         public Slider slider;
 
-        [Tooltip("Character stats providing max health.")]
-        public RuntimeStats stats;
-
-        [Tooltip("Current health value.")]
-        public int currentHealth;
+        [Tooltip("Health component providing values.")]
+        public Health health;
 
         [Tooltip("Transform of Blink used to determine visibility range.")]
         public Transform blinkTransform;
@@ -30,9 +27,15 @@ namespace AdventuresOfBlink.UI
 
         private void Awake()
         {
-            if (stats != null)
-                currentHealth = stats.MaxHealth;
+            if (health != null)
+                health.HealthChanged += OnHealthChanged;
             UpdateBar();
+        }
+
+        private void OnDestroy()
+        {
+            if (health != null)
+                health.HealthChanged -= OnHealthChanged;
         }
 
         private void Update()
@@ -48,31 +51,13 @@ namespace AdventuresOfBlink.UI
             UpdateBar();
         }
 
-        /// <summary>
-        /// Applies damage and refreshes the UI.
-        /// </summary>
-        public void ApplyDamage(int amount)
-        {
-            currentHealth = Mathf.Max(0, currentHealth - amount);
-            UpdateBar();
-        }
-
-        /// <summary>
-        /// Restores health up to the maximum value.
-        /// </summary>
-        public void Heal(int amount)
-        {
-            int max = stats != null ? stats.MaxHealth : currentHealth;
-            currentHealth = Mathf.Min(max, currentHealth + amount);
-            UpdateBar();
-        }
+        private void OnHealthChanged(int current, int max) => UpdateBar();
 
         private void UpdateBar()
         {
-            if (slider == null)
+            if (slider == null || health == null)
                 return;
-            int max = stats != null ? stats.MaxHealth : currentHealth;
-            slider.value = max > 0 ? (float)currentHealth / max : 0f;
+            slider.value = health.Ratio;
         }
     }
 }

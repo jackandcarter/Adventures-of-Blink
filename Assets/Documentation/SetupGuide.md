@@ -73,7 +73,7 @@ Add these components to your scene for full functionality:
 
 ## Targeting System
 1. Add a `TargetingSystem` component to the player or a persistent manager object.
-2. Attach `Targetable` to each enemy or NPC and set their **displayName** and optional `RuntimeStats`.
+2. Attach `Targetable` to each enemy or NPC and set their **displayName**. Add a `Health` component if the object has hit points.
 3. Create a panel named `TargetPanel` and attach the `TargetPanel` script.
    - Assign your `TargetingSystem` and hook up the name and health UI elements.
 4. Press **Tab** in play mode to cycle between nearby targets. See [Targeting Guide](TargetingGuide.md) for full details.

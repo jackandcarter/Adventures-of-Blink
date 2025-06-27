@@ -1,5 +1,4 @@
 using UnityEngine;
-using AdventuresOfBlink.Data;
 
 namespace AdventuresOfBlink.Targeting
 {
@@ -11,7 +10,5 @@ namespace AdventuresOfBlink.Targeting
         [Tooltip("Name shown in the UI when this object is targeted.")]
         public string displayName;
 
-        [Tooltip("Optional stats associated with this target.")]
-        public RuntimeStats stats;
     }
 }

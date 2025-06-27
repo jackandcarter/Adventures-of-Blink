@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using AdventuresOfBlink.Targeting;
+using AdventuresOfBlink.Combat;
 
 namespace AdventuresOfBlink.UI
 {
@@ -18,6 +19,8 @@ namespace AdventuresOfBlink.UI
 
         [Tooltip("Slider displaying target health.")]
         public Slider healthSlider;
+
+        private Health targetHealth;
 
         private void OnEnable()
         {
@@ -39,17 +42,17 @@ namespace AdventuresOfBlink.UI
 
             if (healthSlider != null)
             {
-                if (target != null && target.stats != null)
-                {
-                    healthSlider.value = 1f;
-                    healthSlider.gameObject.SetActive(true);
-                }
-                else
-                {
-                    healthSlider.value = 0f;
-                    healthSlider.gameObject.SetActive(false);
-                }
+                targetHealth = target != null ? target.GetComponent<Health>() : null;
+                bool hasHealth = targetHealth != null;
+                healthSlider.gameObject.SetActive(hasHealth);
+                healthSlider.value = hasHealth ? targetHealth.Ratio : 0f;
             }
+        }
+
+        private void Update()
+        {
+            if (healthSlider != null && targetHealth != null)
+                healthSlider.value = targetHealth.Ratio;
         }
     }
 }
