@@ -1,4 +1,5 @@
 using UnityEngine;
+using AdventuresOfBlink;
 
 namespace AdventuresOfBlink.UI
 {
@@ -16,6 +17,9 @@ namespace AdventuresOfBlink.UI
 
         [Tooltip("Prefab used for each item entry in the UI.")]
         public GameObject itemSlotPrefab;
+
+        [Tooltip("World item prefab used when dropping from the inventory.")]
+        public GameObject worldItemPrefab;
 
         private void OnEnable()
         {
@@ -46,7 +50,11 @@ namespace AdventuresOfBlink.UI
                 GameObject go = Instantiate(itemSlotPrefab, contentRoot);
                 ItemSlotUI slot = go.GetComponent<ItemSlotUI>();
                 if (slot != null)
+                {
+                    slot.inventory = inventory;
+                    slot.worldItemPrefab = worldItemPrefab;
                     slot.Setup(item.data, item.quantity);
+                }
             }
         }
     }
