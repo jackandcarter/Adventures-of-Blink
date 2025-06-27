@@ -108,6 +108,9 @@ namespace AdventuresOfBlink.Combat
             if (attacker != null && target != null)
             {
                 float damage = BattleFormula.CalculateDamage(attacker, target, ability);
+                Health health = target.GetComponent<Health>();
+                if (health != null)
+                    health.ApplyDamage(Mathf.RoundToInt(damage));
                 Debug.Log($"PlasmaSword dealt {damage} damage with {ability.abilityName}");
             }
         }

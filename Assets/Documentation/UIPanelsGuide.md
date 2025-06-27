@@ -56,7 +56,7 @@ Dock slots update automatically through the `InventorySystem.InventoryChanged` e
 1. Make a prefab with a `Slider` UI element sized to your liking.
 2. Attach `HealthBar` and assign:
    - **slider** – the slider component.
-   - **stats** – `RuntimeStats` of the actor.
+   - **health** – the actor's `Health` component.
    - **blinkTransform** – optional; Blink's transform for visibility range.
 3. Set **alwaysVisible** if you want the bar shown regardless of distance.
 
