@@ -22,8 +22,11 @@ namespace AdventuresOfBlink.Combat
         [Tooltip("Stats of the attacker performing the combo.")]
         public RuntimeStats attacker;
 
-        [Tooltip("Optional stats of the current target receiving damage.")]
-        public RuntimeStats target;
+        [Tooltip("Stats of the current target receiving damage.")]
+        public RuntimeStats targetStats;
+
+        [Tooltip("Health component of the current target.")]
+        public Health targetHealth;
 
         [Tooltip("Multiplier applied to attack speed from upgrades.")]
         public float speedMultiplier = 1f;
@@ -105,12 +108,10 @@ namespace AdventuresOfBlink.Combat
                 animator.Play(ability.animationClip.name);
             }
 
-            if (attacker != null && target != null)
+            if (attacker != null && targetStats != null && targetHealth != null)
             {
-                float damage = BattleFormula.CalculateDamage(attacker, target, ability);
-                Health health = target.GetComponent<Health>();
-                if (health != null)
-                    health.ApplyDamage(Mathf.RoundToInt(damage));
+                float damage = BattleFormula.CalculateDamage(attacker, targetStats, ability);
+                targetHealth.ApplyDamage(Mathf.RoundToInt(damage));
                 Debug.Log($"PlasmaSword dealt {damage} damage with {ability.abilityName}");
             }
         }
