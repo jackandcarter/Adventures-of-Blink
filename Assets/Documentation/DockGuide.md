@@ -2,14 +2,8 @@
 
 This guide explains how to add and configure the dock UI used for quick access to abilities and items.
 
-## Adding the Dock Prefab
-1. Locate **Dock.prefab** under `Assets/Prefabs` and drag it into your canvas or UI root.
-2. Select the root **Dock** object and in the **DockPanel** component assign your scene's `InventorySystem` to the **inventory** field.
-3. Expand the **slots** list on `DockPanel` and link each child `DockSlotUI` in order from left to right.
-4. Each child named *Slot* already has a `DockSlotUI` component with a preset `slotIndex`. Verify the indices start at `0` so the dock updates correctly.
-
-## Building the Dock Manually
-Follow these steps if you want to construct the dock without using the prefab:
+## Creating the Dock Panel
+Follow these steps to construct the dock UI from scratch:
 1. Create a `Canvas` and under it add a `Panel` named `Dock`.
    - Anchor the panel to the bottom center of the screen (set **Anchor Min** and **Anchor Max** to `(0.5, 0)` and pivot to `(0.5, 0)`).
    - Resize the panel so it has enough width for all slots in a row.
@@ -28,4 +22,4 @@ Follow these steps if you want to construct the dock without using the prefab:
 3. Dropping onto another slot calls `InventorySystem.MoveDockSlot` if the source was another dock slot, otherwise it equips the dragged entry using `EquipAbility` or `EquipItem`.
 4. The dock refreshes after each drop and `DragPayload.Clear()` is called to reset the payload when the drag ends.
 
-With the prefab placed and fields linked, the dock will display the current assignments from the inventory and support drag-and-drop rearranging.
+Once the panel and slots are linked, the dock will display the current assignments from the inventory and support drag-and-drop rearranging.

@@ -1,6 +1,6 @@
 # Adventures of Blink
 
-Adventures of Blink is a rogue-RPG built in **Unity 6.1**. By day you are Ben "Blink" Kade, a UI programmer at DataWorks. By night you become the CodeWarrior Blink, a vigilante who uses a custom shader implant to hide his identity and augment his senses. With help from Duke, a robotic min-pin companion, Blink hunts hostile hologram programs that threaten DataCity and the Zenith A.I. that keeps it stable.
+Adventures of Blink is a rogue-RPG built in **Unity 6.1.0f1**. By day you are Ben "Blink" Kade, a UI programmer at DataWorks. By night you become the CodeWarrior Blink, a vigilante who uses a custom shader implant to hide his identity and augment his senses. With help from Duke, a robotic min-pin companion, Blink hunts hostile hologram programs that threaten DataCity and the Zenith A.I. that keeps it stable.
 
 Each sunset triggers Blink's transformation. Ben's implant rewrites his appearance with a shimmering energy skin, masking his identity and granting heightened reflexes. As daylight returns, the implant powers down and he reverts to his normal self. Duke accompanies him through these nightly hunts, providing sensor data and mechanical assistance.
 
@@ -23,7 +23,7 @@ The project is in early setup. The vision includes hack-and-slash battles with a
 ## Getting Started
 1. Clone or download this repository.
 2. In Unity Hub, click **Add project** and select the cloned folder.
-3. Open with **Unity 6.1**.
+3. Open with **Unity 6.1.0f1**.
 
 All gameplay assets and scripts will live under the `Assets/` folder. Subfolders such as `Scripts/` and `Art/` will grow as new systems are introduced.
 
@@ -56,7 +56,6 @@ Edit Mode unit tests can be executed using Docker. First run `scripts/setup.sh`
 to pull the Unity editor image. Then set your `UNITY_LICENSE` environment
 variable and execute `scripts/run-tests.sh`.
 
-=======
 Item and ability ScriptableObjects must be placed under `Assets/Resources/Items`
 and `Assets/Resources/Abilities` respectively so they can be loaded when a save
 game is restored.

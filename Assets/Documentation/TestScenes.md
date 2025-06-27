@@ -19,14 +19,11 @@ This guide explains how to assemble a quick test scene in **Adventures of Blink*
 6. Optionally add `PlayerFormSwitcher` to the player and link the **cycle** field to a `DayNightCycle` instance.
 
 ## Dock UI
-1. Drag **Dock.prefab** from `Assets/Prefabs` into your canvas.
-2. On the root **Dock** object, locate `DockPanel` and set:
-   - **inventory** – reference to your scene's `InventorySystem`.
-   - **slots** – array of child `DockSlotUI` components.
-3. Each `DockSlotUI` exposes:
-   - `icon` – `Image` used to display ability or item icons.
-   - `slotIndex` – order of the slot in the dock.
-4. Press play and the dock will mirror the inventory's equipped items and abilities.
+1. Create a panel named **Dock** under your canvas and add a child object for each slot.
+2. Attach `DockSlotUI` to each child and set **slotIndex** in order starting at `0`.
+3. On the root panel add the `DockPanel` component and assign your scene's `InventorySystem`.
+4. Size the **slots** array and drag each `DockSlotUI` into the list.
+5. Press play and the dock will mirror the inventory's equipped items and abilities.
 
 ## Hackable Devices
 1. Add a `HackableDevice` component to any object the player can interact with.
